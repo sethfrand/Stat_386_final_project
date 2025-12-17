@@ -202,7 +202,7 @@ pip install utah-housing-stat386</code></pre>
 <section id="reading-in-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-in-the-data">Reading in the data</h2>
 <p>Using the package’s scraping functions <code>get_data</code> and <code>get_cleaned_data</code> are extremely memory intensive. Unless, dynamically updated data is required, it is highly recommended to use the functions <code>data_no_scrape</code> and <code>cleaned_static_data</code>, which are used to read in data that has been previously scraped (a process that took several hours). Details for using <code>get_data</code> and <code>get_cleaned_data</code> may be found on the <code>Documentation</code> page.</p>
-<div id="7884db95" class="cell" data-execution_count="2">
+<div id="3e6e42f5" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -379,7 +379,7 @@ pip install utah-housing-stat386</code></pre>
 </div>
 </div>
 </div>
-<div id="b9fbd416" class="cell" data-execution_count="3">
+<div id="2d2a390a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the clean, previously scraped data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> cleaned_static_data()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_clean.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -545,7 +545,7 @@ pip install utah-housing-stat386</code></pre>
 <h2 class="anchored" data-anchor-id="cleaning-the-data">Cleaning the data</h2>
 <p>If the data was scraped, the following cleaning functions may be used to clean it. For time and simplicity, the following example usage of these functions will be used with raw, previously scraped (i.e.&nbsp;static) data, <code>df_raw</code>.</p>
 <p>Cleaning the data step-by-step, function-by-function:</p>
-<div id="a330d93e" class="cell" data-execution_count="4">
+<div id="3a484197" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386.cleaning <span class="im">import</span> clean_price, clean_numeric_field, clean_year_built, clean_lot_size, clean_garage, clean_address, clean_city</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply cleaning step-by-step</span></span>
@@ -731,7 +731,7 @@ pip install utah-housing-stat386</code></pre>
 </div>
 </div>
 <p>Cleaning the data with <code>clean_housing_data</code>, which applies all cleaning functions to the DataFrame:</p>
-<div id="b79a2223" class="cell" data-execution_count="5">
+<div id="5d6370f8" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386.cleaning <span class="im">import</span> clean_housing_data, remove_duplicates, remove_invalid_entries</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply cleaning in consolidated steps</span></span>
@@ -898,7 +898,7 @@ pip install utah-housing-stat386</code></pre>
 </div>
 </div>
 <p>Perform some last cleaning steps:</p>
-<div id="8219d5ee" class="cell" data-execution_count="6">
+<div id="e43efa87" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df_clean2.copy()</span>
