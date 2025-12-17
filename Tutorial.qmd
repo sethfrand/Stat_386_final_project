@@ -9,11 +9,8 @@ The package provides tools to collect data from cities in Utah County and Salt L
 ## Installation ##
 *The first things that you will need to do is install the utah_housing_stat386 package.*
 
-```{bash}
-#| eval: false
+`pip install utah-housing-stat386`
 
-pip install utah-housing-stat386
-```
 After installing, you'll also need to install [playwright](https://playwright.dev/python/docs/intro) browers
 to run the scraping functions.
 

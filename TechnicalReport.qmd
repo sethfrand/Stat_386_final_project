@@ -5,15 +5,33 @@ jupyter: python3
 
 ## Introduction
 
-_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._
+This project analyzes Utah residential housing listings in several cities in Salt Lake County and Utah counties to explore, build, and evaluate predictive models for house `price`.
+
+The motivation for this project is to provide data-driven guidance for buyers, sellers, and local planners by identifying key predictors of sale price and producing models that balance predictive accuracy and interpretability.
+
+Some key goals of this project were (1) to produce clear exploratory analyses that reveal relationships between `price` and common housing attributes; (2) to fit defensible regression models (i.e. best-subsets by AIC and a LASSO-regularized model) and compare them using cross-validated PMSE; and (3) to document reproducible code and a small interactive Streamlit app for sharing results.
 
 
 ## Data Source and Methodology
 
-1. _Data acquisition:_ `TODO - outline collection scripts/APIs`
-2. _Cleaning pipeline:_ `TODO - summarize transformations and validations implemented`
-3. _Analysis workflow:_ `TODO - describe statistical or modeling techniques`
-4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
+1. Data acquisition:
+
+- Raw listings were collected from UtahRealEstate.com with the repository's scraping scripts. The primary ingestion function used in this report is `data_no_scape()` which returns the raw DataFrame used for downstream processing.
+
+2. Cleaning pipeline:
+
+- The cleaning pipeline performs the following steps: removing obvious duplicates, droping invalid or malformed entries, and standardizing numeric columns (e.g. beds, baths, sqft). For purposes of analysis, we dropped the original `address` and `mls` fields.
+
+3. Analysis workflow:
+
+- Exploratory data analysis involved  visual checks (scatterplots and boxplots) to inspect relationships between `price` and candidate predictors and to assess outliers and heterogeneity across selected cities.
+- Model selection involved exhaustive best-subsets regression evaluated by AIC to identify an interpretable model, and LASSO (with cross-validated penalty) to perform automated variable selection and shrinkage. Models were fit with `statsmodels` and model summaries were constructed with `patsy`.
+- Model assessment: 5-fold cross-validation is used to estimate the predictive mean squared error (PMSE) for competing models.
+
+4. Tooling and reproducibility:
+
+- Primary libraries: `pandas`, `numpy`, `matplotlib`, `seaborn`, `statsmodels`, `patsy`, `scikit-learn`.
+- Project environment and packaging: see `pyproject.toml`
 
 
 ## EDA
@@ -93,7 +111,7 @@ plt.show()
 
 ## Link to Streamlit App
 
-_TODO: Add a link to Streamlit
+_TODO: Add a link to Streamlit with a short description
 
 
 ## Analysis
@@ -104,8 +122,6 @@ _TODO: Add a link to Streamlit
 
 # Import necessary modules
 import itertools
-import numpy as np
-import pandas as pd
 import statsmodels.formula.api as smf
 from patsy import dmatrices
 from sklearn.model_selection import KFold
@@ -273,4 +289,14 @@ print(f"LASSO (1SE) PMSE        : {pmse_lasso:.3f}")
 
 ## Conclusion
 
-_TODO: Interpret the results, note limitations, and capture open questions or future experiments._
+The report compares two model-building strategies: exhaustive best-subsets selection using AIC and LASSO (with the 1-SE rule). Fitted model summaries are generated through `statsmodels`, and the models are evaluated using 5-fold cross-validated PMSE. The best‐subsets AIC procedure selected a parsimonious model containing only five structural predictors—beds, baths, square footage, year built, and lot size—yielding an ($R^2$) of 0.577 and the lowest AIC (30231.2) among all candidate models. All included predictors are statistically significant at the $\alpha=0.05$ level, with square footage and lot size positively associated with price, while the negative coefficient on beds likely reflects multicollinearity with square footage. This model emphasizes interpretability and achieves strong explanatory power with relatively few parameters.
+
+In contrast, the LASSO model using the one–standard‐error rule selected a much richer specification that included the same core structural variables, added garage size, and incorporated city as a categorical factor, resulting in 26 fitted coefficients in the refit OLS model. This model achieved a slightly higher in‐sample fit ($R^2 = 0.593$), suggesting that location effects explain additional variation in housing prices beyond physical characteristics. However, many individual city coefficients are not statistically significant, indicating that while location matters collectively, its contribution is diffuse across levels rather than driven by a small number of dominant cities.
+
+When comparing predictive performance via cross‐validation, the best‐subsets AIC model slightly outperformed the LASSO‐selected model, with a lower PMSE ($2.13 \times 10^{12}$ vs. $2.22 \times 10^{12}$). This suggests that the additional complexity introduced by the LASSO model does not translate into improved out‐of‐sample prediction. Overall, the results highlight a classic bias–variance tradeoff: the LASSO model captures more structure through location effects but incurs higher variance, while the simpler AIC‐selected model provides comparable and slightly superior—predictive accuracy with greater interpretability.
+
+There are several limitations to consider. The scraped dataset may suffer from selection bias, as online listings do not represent all transactions, and measurement errors could exist in features such as square footage or number of bedrooms. Additionally, some predictors are coarse (e.g. `city`) and may obscure spatial heterogeneity. Residual heteroscedasticity and nonlinearity are also possible, suggesting that transforming the price variable (e.g., using $\log(\texttt{price})$) or applying robust, heteroscedasticity-consistent standard errors may be appropriate.
+
+Future work could involve incorporating additional predictors such as year built, lot size, and proximity to amenities, or exploring spatial models that explicitly account for location dependence. Alternative loss functions like MAE could be evaluated, and tree-based ensemble methods such as random forests or gradient boosting could be applied, with comparisons of their calibrated uncertainty against linear models. Finally, the best-performing model could potentially be packaged and deployed via an endpoint or dashboard, enabling users to query price predictions based on property attributes.
+
+From a practical standpoint, the results suggest that a sizeable portion of the information needed to predict home prices comes from a small set of basic property features, especially square footage, lot size, and overall layout. It was observed tha adding many location indicators increases model complexity without meaningfully improving predictive accuracy. For real-world use, such as quick price estimates, reporting, or decision support, the simpler AIC-selected model is likely the better choice: it is easier to explain, easier to maintain, and performs just as well (or slightly better) on new data. More complex models may still be useful for deeper analysis of neighborhood effects.

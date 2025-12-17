@@ -174,11 +174,8 @@ demo_cleaning()
 ```
 
 Tests are located in the `tests/` directory and can be run with:
-```{bash}
-#| eval: false
 
-pytest tests/
-```
+`pytest tests/`
 
 ## **License**
 
