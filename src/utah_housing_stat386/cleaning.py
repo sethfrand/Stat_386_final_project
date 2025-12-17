@@ -268,3 +268,41 @@ def get_cleaned_data(max_listings=5, cities=None, output='pandas'):
     else:
         raise ValueError("Invalid output option. Choose 'pandas' or 'csv'.")
 
+
+def data_no_scape():
+    """
+    Get static housing data
+
+    Returns:
+        pandas DataFrame
+    """
+    df1 = pd.read_csv("../../data/utah_housing_data_ORIGINAL.csv")
+    df2 = pd.read_csv("../../data/Salt_Lake_County_housing_data.csv")
+
+    return pd.concat([df1, df2])
+
+
+def cleaned_static_data():
+    """
+    Get static housing data and apply cleaning automatically
+
+    Args:
+        max_listings (int): Maximum number of listings to fetch per city
+        cities (list): List of cities to scrape (None = all cities)
+        output (str): 'pandas' or 'csv'
+
+    Returns:
+        pandas DataFrame or str: Cleaned housing data or path to saved CSV
+    """
+    from utah_housing_stat386.core import get_data
+
+    df1 = pd.read_csv("../../data/utah_housing_data_ORIGINAL.csv")
+    df2 = pd.read_csv("../../data/Salt_Lake_County_housing_data.csv")
+    df_raw = pd.concat([df1, df2])
+
+    df_clean = clean_housing_data(df_raw)
+    df_clean = remove_invalid_entries(df_clean)
+    df_clean = remove_duplicates(df_clean)
+
+    return df_clean
+

@@ -4,8 +4,10 @@ title: "Utah Housing Data Package"
 
 ![Wasatch Mountains](wasatch_mountains.png)
 
-Documentation can be found [here](Documentation.qmd).
+This project involves the collection and analysis of Utah housing data from UtahRealEstate.com. It focuses on properties in Utah County and Salt Lake County. The project also involved the creation of Python package `utah-housing-stat386`, which provides structured data as well as tools for cleaning, visualization, and analysis.
 
-Here is a simple tutorial that you can follow along with [here](Tutorial.qmd).
+Documentation for the package may be found [here](Documentation.qmd).
 
-Review the [technical report](TechnicalReport.qmd).
+A simple tutorial using the package's functions may be found [here](Tutorial.qmd).
+
+The technical report summarizing the project may be found [here](TechnicalReport.qmd).
