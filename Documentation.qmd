@@ -80,7 +80,9 @@ The main package is `utah_housing_stat386`, located in the `src/utah_housing_sta
 ## **Installation**
 
 1.  **Install Playwright browsers** (required for scraping):
-    ```bash
+    ```{bash}
+    #| eval: false
+    
     pip install playwright
     playwright install
     ```
@@ -94,7 +96,9 @@ The main functionality is exposed via the `get_data` function in `utah_housing_s
 
 ### **Example: Basic Data Fetching**
 
-```python
+```{python}
+#| eval: false
+
 # Import dependencies
 from utah_housing_stat386.core import get_data
 from utah_housing_stat386.cleaning import data_no_scape
@@ -161,7 +165,9 @@ Supported cities include:
 The package includes comprehensive data cleaning functions to transform raw scraped data into analysis-ready format.
 
 ### **Quick Start with Cleaned Data**
-```python
+```{python}
+#| eval: false
+
 from utah_housing_stat386 import get_cleaned_data, cleaned_static_data
 
 # Get cleaned data directly (via scraping, memory-intensive)
@@ -174,7 +180,9 @@ print(df_static_clean.head())
 ```
 
 ### **Manual Cleaning Workflow**
-```python
+```{python}
+#| eval: false
+
 from utah_housing_stat386.cleaning import data_no_scape
 from utah_housing_stat386 import get_data, clean_housing_data, remove_duplicates, remove_invalid_entries
 
@@ -188,7 +196,9 @@ df_clean = remove_invalid_entries(df_clean)
 ```
 
 ### **Individual Cleaning Functions**
-```python
+```{python}
+#| eval: false
+
 from utah_housing_stat386 import clean_price, clean_lot_size, clean_garage
 
 # Clean specific fields
@@ -220,7 +230,9 @@ df['garage'] = df['garage'].apply(clean_garage)  # Extracts garage spaces
 
 The package includes demo functionality to get started quickly:
 
-```python
+```{python}
+#| eval: false
+
 from utah_housing_stat386 import run_demo, demo_cleaning, load_demo_data
 
 # Run full demo with sample data
@@ -234,7 +246,9 @@ demo_cleaning()
 ```
 
 Tests are located in the `tests/` directory and can be run with:
-```bash
+```{bash}
+#| eval: false
+
 pytest tests/
 ```
 

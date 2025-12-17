@@ -412,6 +412,602 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div id="38d5f5ae" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386.core <span class="im">import</span> get_data</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nest_asyncio</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>nest_asyncio.<span class="bu">apply</span>()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> get_data(max_listings<span class="op">=</span><span class="dv">5</span>, cities <span class="op">=</span> [<span class="st">'orem'</span>], output<span class="op">=</span><span class="st">"pandas"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬──────┐
+
+│ requests_finished             │ 0    │
+
+│ requests_failed               │ 0    │
+
+│ retry_histogram               │ [0]  │
+
+│ request_avg_failed_duration   │ None │
+
+│ request_avg_finished_duration │ None │
+
+│ requests_finished_per_minute  │ 0    │
+
+│ requests_failed_per_minute    │ 0    │
+
+│ request_total_duration        │ 0s   │
+
+│ requests_total                │ 0    │
+
+│ crawler_runtime               │ 0s   │
+
+└───────────────────────────────┴──────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 0/2 pages, 0 failed requests, desired concurrency 3.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 0; desired_concurrency = 3; cpu = 0.0; mem = 0.0; event_loop = 0.446; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 0/2 pages, 0 failed requests, desired concurrency 3.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 0/2 pages, 0 failed requests, desired concurrency 4.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 5.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 5.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 5.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.92 GB of 2.00 GB (96%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────┐
+
+│ requests_finished             │ 1      │
+
+│ requests_failed               │ 0      │
+
+│ retry_histogram               │ [1]    │
+
+│ request_avg_failed_duration   │ None   │
+
+│ request_avg_finished_duration │ 23.44s │
+
+│ requests_finished_per_minute  │ 1      │
+
+│ requests_failed_per_minute    │ 0      │
+
+│ request_total_duration        │ 23.44s │
+
+│ requests_total                │ 1      │
+
+│ crawler_runtime               │ 59.76s │
+
+└───────────────────────────────┴────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2127119 due to: Page.goto: Timeout 30000ms exceeded.File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/futures.py", line 203, in result,     raise self._exception.with_traceback(self._exception_tb)
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2127037 due to: Page.goto: Timeout 30000ms exceeded.File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/futures.py", line 203, in result,     raise self._exception.with_traceback(self._exception_tb)
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 5.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2126977 due to: Page.goto: Timeout 30000ms exceeded.File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/futures.py", line 203, in result,     raise self._exception.with_traceback(self._exception_tb)
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2126815 due to: Page.goto: Timeout 30000ms exceeded.File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/futures.py", line 203, in result,     raise self._exception.with_traceback(self._exception_tb)
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2126591 due to: Page.goto: Timeout 30000ms exceeded.File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/futures.py", line 203, in result,     raise self._exception.with_traceback(self._exception_tb)
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 0; desired_concurrency = 5; cpu = 0.0; mem = 0.195; event_loop = 0.038; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 5.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2127119 due to: Creating a new page with plugin &lt;crawlee.browsers._playwright_browser_plugin.PlaywrightBrowserPlugin object at 0x11b47a1d0&gt; timed out.,  File "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/.venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 123, in _inner_send,     done, _ = await asyncio.wait(
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2127037 due to: Creating a new page with plugin &lt;crawlee.browsers._playwright_browser_plugin.PlaywrightBrowserPlugin object at 0x11b47a1d0&gt; timed out.,  File "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/.venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 123, in _inner_send,     done, _ = await asyncio.wait(
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2126977 due to: Creating a new page with plugin &lt;crawlee.browsers._playwright_browser_plugin.PlaywrightBrowserPlugin object at 0x11b47a1d0&gt; timed out.,  File "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/.venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 123, in _inner_send,     done, _ = await asyncio.wait(
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2126815 due to: Creating a new page with plugin &lt;crawlee.browsers._playwright_browser_plugin.PlaywrightBrowserPlugin object at 0x11b47a1d0&gt; timed out.,  File "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/.venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 123, in _inner_send,     done, _ = await asyncio.wait(
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-yellow-fg">WARN </span> Retrying request to https://www.utahrealestate.com/listing/2126591 due to: Creating a new page with plugin &lt;crawlee.browsers._playwright_browser_plugin.PlaywrightBrowserPlugin object at 0x11b47a1d0&gt; timed out.,  File "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/.venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 123, in _inner_send,     done, _ = await asyncio.wait(
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.95 GB of 2.00 GB (97%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 5.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 4.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.48 GB of 2.00 GB (124%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 3.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.07 GB of 2.00 GB (104%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 2.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.21 GB of 2.00 GB (111%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 1          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1]        │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 23.44s     │
+
+│ requests_finished_per_minute  │ 1          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 23.44s     │
+
+│ requests_total                │ 1          │
+
+│ crawler_runtime               │ 1min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.23 GB of 2.00 GB (111%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 0; desired_concurrency = 1; cpu = 0.038; mem = 1.0; event_loop = 0.019; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.17 GB of 2.00 GB (109%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.05 GB of 2.00 GB (103%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.05 GB of 2.00 GB (102%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.01 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.01 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 1          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1]        │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 23.44s     │
+
+│ requests_finished_per_minute  │ 0          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 23.44s     │
+
+│ requests_total                │ 1          │
+
+│ crawler_runtime               │ 2min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 0; desired_concurrency = 1; cpu = 0.0; mem = 1.0; event_loop = 0.0; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.01 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.03 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.02 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.01 GB of 2.00 GB (100%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.97 GB of 2.00 GB (99%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.94 GB of 2.00 GB (97%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 1          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1]        │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 23.44s     │
+
+│ requests_finished_per_minute  │ 0          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 23.44s     │
+
+│ requests_total                │ 1          │
+
+│ crawler_runtime               │ 3min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 0; desired_concurrency = 1; cpu = 0.0; mem = 1.0; event_loop = 0.0; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.94 GB of 2.00 GB (97%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 1          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1]        │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 23.44s     │
+
+│ requests_finished_per_minute  │ 0          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 23.44s     │
+
+│ requests_total                │ 1          │
+
+│ crawler_runtime               │ 4min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.27 GB of 2.00 GB (113%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 1/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 0; desired_concurrency = 1; cpu = 0.0; mem = 0.765; event_loop = 0.043; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.00 GB of 2.00 GB (100%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 2/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.02 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 2/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.02 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 2/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.02 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 2/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 2/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.91 GB of 2.00 GB (96%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 2          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1, 0, 1]  │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 20.45s     │
+
+│ requests_finished_per_minute  │ 0          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 40.91s     │
+
+│ requests_total                │ 2          │
+
+│ crawler_runtime               │ 5min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 2/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 1; desired_concurrency = 1; cpu = 0.0; mem = 0.732; event_loop = 0.0; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.01 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 3/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.01 GB of 2.00 GB (100%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 3/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.11 GB of 2.00 GB (106%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 3/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.12 GB of 2.00 GB (106%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 3/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.13 GB of 2.00 GB (107%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 3/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.03 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 3          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1, 0, 2]  │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 18.83s     │
+
+│ requests_finished_per_minute  │ 0          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 56.49s     │
+
+│ requests_total                │ 3          │
+
+│ crawler_runtime               │ 6min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 3/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 1; desired_concurrency = 1; cpu = 0.0; mem = 0.77; event_loop = 0.0; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.26 GB of 2.00 GB (113%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.03 GB of 2.00 GB (101%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.04 GB of 2.00 GB (102%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.04 GB of 2.00 GB (102%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.04 GB of 2.00 GB (102%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.98 GB of 2.00 GB (99%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Current request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 4          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1, 0, 3]  │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 18.04s     │
+
+│ requests_finished_per_minute  │ 1          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 1min 12.2s │
+
+│ requests_total                │ 4          │
+
+│ crawler_runtime               │ 7min 59.8s │
+
+└───────────────────────────────┴────────────┘
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> current_concurrency = 1; desired_concurrency = 1; cpu = 0.0; mem = 0.654; event_loop = 0.0; client_info = 0.0
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.24 GB of 2.00 GB (112%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 4/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 5/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 5/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 1.96 GB of 2.00 GB (98%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Crawled 5/7 pages, 0 failed requests, desired concurrency 1.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.snapshotter]</span> <span class="ansi-yellow-fg">WARN </span> Memory is critically overloaded. Using 2.21 GB of 2.00 GB (110%). Consider increasing available memory.
+
+<span class="ansi-bright-black-fg">[crawlee._autoscaling.autoscaled_pool]</span> <span class="ansi-green-fg">INFO </span> Waiting for remaining tasks to finish
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Error analysis: total_errors=10 unique_errors=2
+
+<span class="ansi-bright-black-fg">[crawlee.crawlers._playwright._playwright_crawler]</span> <span class="ansi-green-fg">INFO </span> Final request statistics:
+
+┌───────────────────────────────┬────────────┐
+
+│ requests_finished             │ 6          │
+
+│ requests_failed               │ 0          │
+
+│ retry_histogram               │ [1, 0, 5]  │
+
+│ request_avg_failed_duration   │ None       │
+
+│ request_avg_finished_duration │ 20.04s     │
+
+│ requests_finished_per_minute  │ 1          │
+
+│ requests_failed_per_minute    │ 0          │
+
+│ request_total_duration        │ 2min 0.2s  │
+
+│ requests_total                │ 6          │
+
+│ crawler_runtime               │ 8min 48.2s │
+
+└───────────────────────────────┴────────────┘
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mls</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">address</th>
+<th data-quarto-table-cell-role="th">beds</th>
+<th data-quarto-table-cell-role="th">baths</th>
+<th data-quarto-table-cell-role="th">sqft</th>
+<th data-quarto-table-cell-role="th">year_built</th>
+<th data-quarto-table-cell-role="th">lot_size</th>
+<th data-quarto-table-cell-role="th">garage</th>
+<th data-quarto-table-cell-role="th">agent</th>
+<th data-quarto-table-cell-role="th">city</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2127119</td>
+<td>$625,000</td>
+<td>560 S 500 E, Orem, UT 84097</td>
+<td>5</td>
+<td>2</td>
+<td>3194</td>
+<td>1957</td>
+<td>0.24 Ac</td>
+<td>560</td>
+<td>Contact Agent Rodney B Moser 801-930-0945 Co-A...</td>
+<td>orem</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2127037</td>
+<td>$479,900</td>
+<td>847 W 630 N, Orem, UT 84057</td>
+<td>5</td>
+<td>2</td>
+<td>1728</td>
+<td>1970</td>
+<td>0.17 Ac</td>
+<td>2127037</td>
+<td>Contact Agent Eric Tolman 801-830-3142 Co-Agen...</td>
+<td>orem</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2126977</td>
+<td>$274,900</td>
+<td>1140 W 950 N #402, Orem, UT 84057</td>
+<td>2</td>
+<td>1</td>
+<td>845</td>
+<td>2021</td>
+<td>0.02 Ac</td>
+<td>0</td>
+<td>Contact Agent Devin Haub 801-857-7214 Your Nam...</td>
+<td>orem</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2126815</td>
+<td>$539,900</td>
+<td>380 E 1000 N, Orem, UT 84057</td>
+<td>4</td>
+<td>2</td>
+<td>1728</td>
+<td>1970</td>
+<td>0.22 Ac</td>
+<td>2126815</td>
+<td>Contact Agent Martin Sommerkamp-Mendizabal 801...</td>
+<td>orem</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2126591</td>
+<td>$920,000</td>
+<td>756 S 900 E, Orem, UT 84097</td>
+<td>6</td>
+<td>4</td>
+<td>4866</td>
+<td>2015</td>
+<td>0.44 Ac</td>
+<td>2</td>
+<td>Contact Agent Ashley Axley 801-592-1199 Your N...</td>
+<td>orem</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 
 
 
