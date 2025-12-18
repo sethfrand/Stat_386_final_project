@@ -16,6 +16,9 @@ website:
       - href: TechnicalReport.qmd
         text: Technical Report
 
+python:
+  path: .venv/bin/python
+
 format:
   html:
     theme: cosmo

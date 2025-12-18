@@ -33,8 +33,6 @@ The package's web scraper uses **Playwright** for browser automation and easy in
 
 1.  **Install Playwright browsers** (required for scraping):
     ```{bash}
-    #| eval: false
-    
     pip install playwright
     playwright install
     ```
@@ -175,7 +173,9 @@ demo_cleaning()
 
 Tests are located in the `tests/` directory and can be run with:
 
-`pytest tests/`
+```{bash}
+pytest tests/
+```
 
 ## **License**
 

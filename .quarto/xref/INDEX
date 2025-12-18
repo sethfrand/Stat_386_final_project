@@ -1,17 +1,17 @@
 {
   "Tutorial.qmd": {
-    "Tutorial.html": "13af5c6f"
+    "Tutorial.html": "e359e9c6"
   },
   "tests/test.ipynb": {
-    "test.html": "e13fecf7"
+    "test.html": "7d6966cb"
   },
   "Documentation.qmd": {
-    "Documentation.html": "101a44a0"
+    "Documentation.html": "6146fe40"
   },
   "index.qmd": {
-    "index.html": "49a394eb"
+    "index.html": "4aa363d7"
   },
   "TechnicalReport.qmd": {
-    "TechnicalReport.html": "04cf6708"
+    "TechnicalReport.html": "c082fa5f"
   }
 }

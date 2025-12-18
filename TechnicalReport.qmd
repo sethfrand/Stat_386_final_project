@@ -20,7 +20,7 @@ Some key goals of this project were (1) to produce clear exploratory analyses th
 
 2. Cleaning pipeline:
 
-- The cleaning pipeline performs the following steps: removing obvious duplicates, droping invalid or malformed entries, and standardizing numeric columns (e.g. beds, baths, sqft). For purposes of analysis, we dropped the original `address` and `mls` fields.
+- The cleaning pipeline performs the following steps: removing obvious duplicates, dropping invalid or malformed entries, and standardizing numeric columns (e.g. beds, baths, sqft). For purposes of analysis, we dropped the original `address` and `mls` fields.
 
 3. Analysis workflow:
 

@@ -1,5 +1,6 @@
 import pandas as pd
-import pkg_resources
+#import pkg_resources
+from importlib import resources as pkg_resources
 
 
 def load_demo_data():
