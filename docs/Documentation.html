@@ -250,7 +250,7 @@ playwright install</code></pre>
 <p>The main functionality is exposed via the <code>get_data</code> function in <code>utah_housing_stat386.core</code>, which scrapes data directly. <strong>Warning: This function is extremely memory instensive.</strong> If static data is sufficient, it is easiest—<strong>highly recommneded</strong>—to simply use the <code>data_no_scape</code> function instead.</p>
 <section id="example-basic-data-fetching" class="level3">
 <h3 class="anchored" data-anchor-id="example-basic-data-fetching"><strong>Example: Basic Data Fetching</strong></h3>
-<div id="ef13877a" class="cell" data-execution_count="1">
+<div id="031f5b6b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import dependencies</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386.core <span class="im">import</span> get_data</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386.cleaning <span class="im">import</span> data_no_scape</span>
@@ -294,7 +294,7 @@ playwright install</code></pre>
 <p>The package includes comprehensive data cleaning functions to transform raw scraped data into analysis-ready format.</p>
 <section id="quick-start-with-cleaned-data" class="level3">
 <h3 class="anchored" data-anchor-id="quick-start-with-cleaned-data"><strong>Quick Start with Cleaned Data</strong></h3>
-<div id="eb3e29b4" class="cell" data-execution_count="2">
+<div id="5ca5670b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386 <span class="im">import</span> get_cleaned_data, cleaned_static_data</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get cleaned data directly (via scraping, memory-intensive)</span></span>
@@ -308,7 +308,7 @@ playwright install</code></pre>
 </section>
 <section id="manual-cleaning-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="manual-cleaning-workflow"><strong>Manual Cleaning Workflow</strong></h3>
-<div id="b6d02579" class="cell" data-execution_count="3">
+<div id="9b02c6ed" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386.cleaning <span class="im">import</span> data_no_scape</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386 <span class="im">import</span> get_data, clean_housing_data, remove_duplicates, remove_invalid_entries</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -323,7 +323,7 @@ playwright install</code></pre>
 </section>
 <section id="individual-cleaning-functions" class="level3">
 <h3 class="anchored" data-anchor-id="individual-cleaning-functions"><strong>Individual Cleaning Functions</strong></h3>
-<div id="80baafea" class="cell" data-execution_count="4">
+<div id="6d740d1e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386 <span class="im">import</span> clean_price, clean_lot_size, clean_garage</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean specific fields</span></span>
@@ -441,7 +441,7 @@ playwright install</code></pre>
 <section id="demo-testing" class="level2">
 <h2 class="anchored" data-anchor-id="demo-testing"><strong>Demo &amp; Testing</strong></h2>
 <p>The package includes demo functionality to get started quickly:</p>
-<div id="cee9c359" class="cell" data-execution_count="5">
+<div id="33b182a3" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utah_housing_stat386 <span class="im">import</span> run_demo, demo_cleaning, load_demo_data</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run full demo with sample data</span></span>

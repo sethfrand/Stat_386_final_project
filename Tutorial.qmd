@@ -21,6 +21,7 @@ Using the package's scraping functions `get_data` and `get_cleaned_data` are ext
 
 ```{python}
 #| include: false
+#| eval: false
 import sys
 sys.path.insert(0, "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/src")
 ```

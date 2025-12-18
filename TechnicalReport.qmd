@@ -38,6 +38,7 @@ Some key goals of this project were (1) to produce clear exploratory analyses th
 
 ```{python}
 #| include: false
+#| eval: false
 import sys
 sys.path.insert(0, "/Users/cromacair/Desktop/STAT 386/Final Project/Final_Project_Repo/src")
 ```
