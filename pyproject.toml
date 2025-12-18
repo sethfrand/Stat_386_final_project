@@ -7,7 +7,7 @@ name = "utah_housing_stat386"
 version = "0.3.2"  # Increment version for TestPyPI
 description = "A package to scrape Utah housing data for certain cities of Salt Lake and Utah counties"
 readme = "README.md"
-requires-python = ">=3.11,<3.12"
+requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
     { name = "Seth Frandsen, Carson Ordyna" }
