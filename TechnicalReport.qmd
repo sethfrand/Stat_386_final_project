@@ -111,7 +111,7 @@ plt.show()
 
 ## Link to Streamlit App
 
-_TODO: Add a link to Streamlit with a short description
+[Link to Streamlit app](https://stat386finalproject-seth-carson.streamlit.app/)
 
 
 ## Analysis
