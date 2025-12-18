@@ -1,4 +1,6 @@
 
+If you are interested in running throough a tutorial or reading the documentation, you can go [here](https://carsonordyna.github.io/Stat_386_final_project/)
+
 # **STAT 386 Final Project: Utah Housing Data Scraper**
 
 ## **Overview**
